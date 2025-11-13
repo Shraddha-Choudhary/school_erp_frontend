@@ -1,69 +1,3 @@
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// const Students = () => {
-//   const [activeTab, setActiveTab] = useState("");
-//   const navigate = useNavigate();
-
-//   const handleButtonClick = (id) => {
-//     setActiveTab(id);
-
-//     // ✅ navigate according to correct paths
-//     if (id === "add") navigate("/admin/students/add");
-//     else if (id === "list") navigate("/admin/students/list");
-//     else if (id === "view") navigate("/admin/students/view/1"); // demo id
-//     else if (id === "edit") navigate("/admin/students/edit/1"); // demo id
-//     else if (id === "attendance") navigate("/admin/attendance");
-//     else if (id === "fees") navigate("/admin/fees");
-//     else if (id === "documents") navigate("/admin/documents");
-//     else if (id === "certificates") navigate("/admin/certificates");
-//     else if (id === "total") navigate("/admin/students/list");
-//     else if (id === "delete") navigate("/admin/students/list");
-//   };
-
-//   const buttons = [
-//     { id: "add", label: "Add Student" },
-//     { id: "list", label: "List Students" },
-//     { id: "view", label: "View Profile" },
-//     { id: "edit", label: "Edit Student" },
-//     { id: "attendance", label: "Attendance" },
-//     { id: "fees", label: "Fees" },
-//     { id: "documents", label: "Documents" },
-//     { id: "certificates", label: "Certificates" },
-//     { id: "total", label: "Total Students" },
-//     { id: "delete", label: "Delete Student" },
-//   ];
-
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#9c27b0] to-[#64b5f6] bg-clip-text text-transparent">
-//         Student Management
-//       </h1>
-
-//       {/* ===== TOP ACTION BUTTONS ===== */}
-//       <div className="flex flex-wrap justify-center gap-8 mb-10">
-//         {buttons.map((btn) => (
-//           <div key={btn.id} className="flex flex-col items-center">
-//             <button
-//               onClick={() => handleButtonClick(btn.id)}
-//               className={`relative px-6 py-2 font-semibold text-lg transition-all duration-300 
-//                 bg-white bg-clip-text text-transparent bg-gradient-to-r from-[#9c27b0] to-[#64b5f6]
-//                 hover:scale-105`}
-//             >
-//               {btn.label}
-//             </button>
-
-//             {activeTab === btn.id && (
-//               <div className="w-20 h-[3px] mt-1 rounded-full bg-gradient-to-r from-[#9c27b0] to-[#64b5f6]" />
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Students;
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -75,8 +9,9 @@ import {
   FaMoneyBillWave,
   FaFileAlt,
   FaCertificate,
-  FaUsers,
-  FaTrash,
+  FaIdCard,
+  FaUserGraduate,
+  FaExchangeAlt,
 } from "react-icons/fa";
 
 const Students = () => {
@@ -86,7 +21,6 @@ const Students = () => {
   const handleCardClick = (id) => {
     setActiveTab(id);
 
-    // ✅ navigate according to correct paths
     if (id === "add") navigate("/admin/students/add");
     else if (id === "list") navigate("/admin/students/list");
     else if (id === "view") navigate("/admin/students/view/1");
@@ -95,26 +29,30 @@ const Students = () => {
     else if (id === "fees") navigate("/admin/fees");
     else if (id === "documents") navigate("/admin/documents");
     else if (id === "certificates") navigate("/admin/certificates");
-    else if (id === "total") navigate("/admin/students/list");
-    else if (id === "delete") navigate("/admin/students/list");
+    // else if (id === "idcard") navigate("/admin/IdCard");
+    else if (id === "idcard") navigate("/admin/students/IdCard");
+
+    else if (id === "character") navigate("/admin/character-certificate");
+    else if (id === "transfer") navigate("/admin/transfer-certificate");
   };
 
   const cards = [
-    { id: "add", label: "Add Student", icon: <FaUserPlus size={36} /> },
-    { id: "list", label: "List Students", icon: <FaListAlt size={36} /> },
-    { id: "view", label: "View Profile", icon: <FaUserCircle size={36} /> },
-    { id: "edit", label: "Edit Student", icon: <FaEdit size={36} /> },
-    { id: "attendance", label: "Attendance", icon: <FaCalendarCheck size={36} /> },
-    { id: "fees", label: "Fees", icon: <FaMoneyBillWave size={36} /> },
-    { id: "documents", label: "Documents", icon: <FaFileAlt size={36} /> },
-    { id: "certificates", label: "Certificates", icon: <FaCertificate size={36} /> },
-    { id: "total", label: "Total Students", icon: <FaUsers size={36} /> },
-    { id: "delete", label: "Delete Student", icon: <FaTrash size={36} /> },
+    { id: "add", label: "Add Student", icon: <FaUserPlus size={38} /> },
+    { id: "list", label: "List Students", icon: <FaListAlt size={38} /> },
+    { id: "view", label: "View Profile", icon: <FaUserCircle size={38} /> },
+    { id: "edit", label: "Edit Student", icon: <FaEdit size={38} /> },
+    { id: "attendance", label: "Attendance", icon: <FaCalendarCheck size={38} /> },
+    { id: "fees", label: "Fees", icon: <FaMoneyBillWave size={38} /> },
+    { id: "documents", label: "Documents", icon: <FaFileAlt size={38} /> },
+    { id: "certificates", label: "Certificates", icon: <FaCertificate size={38} /> },
+    { id: "idcard", label: "ID Card", icon: <FaIdCard size={38} /> },
+    { id: "character", label: "Character Certificate", icon: <FaUserGraduate size={38} /> },
+    { id: "transfer", label: "Transfer Certificate", icon: <FaExchangeAlt size={38} /> },
   ];
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-[#9c27b0] to-[#64b5f6] bg-clip-text text-transparent">
+    <div className="p-8">
+      <h1 className="text-4xl font-extrabold mb-12 text-center bg-gradient-to-r from-[#9c27b0] to-[#64b5f6] bg-clip-text text-transparent drop-shadow-md">
         Student Management
       </h1>
 
@@ -124,18 +62,18 @@ const Students = () => {
           <div
             key={card.id}
             onClick={() => handleCardClick(card.id)}
-            className={`cursor-pointer flex flex-col items-center justify-center p-6 rounded-2xl border-2
-              border-transparent bg-white hover:scale-105 transition-transform duration-300
-              ${activeTab === card.id
-                ? "bg-gradient-to-r from-[#9c27b0]/10 to-[#64b5f6]/10 border-4 border-gradient-to-r from-[#9c27b0] to-[#64b5f6]"
-                : "border-gradient-to-r from-[#9c27b0] to-[#64b5f6]"
+            className={`cursor-pointer flex flex-col items-center justify-center p-8 rounded-[10px] border-2 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105
+              ${
+                activeTab === card.id
+                  ? "bg-gradient-to-r from-[#f3e5f5] to-[#e3f2fd] border-[#9c27b0]"
+                  : "bg-white border-transparent"
               }`}
             style={{
               borderImage: "linear-gradient(to right, #9c27b0, #64b5f6) 1",
             }}
           >
-            <div className="text-[#9c27b0] mb-3">{card.icon}</div>
-            <p className="text-lg font-semibold text-gray-700">{card.label}</p>
+            <div className="text-[#9c27b0] mb-4 drop-shadow-md">{card.icon}</div>
+            <p className="text-lg font-semibold text-gray-700 text-center">{card.label}</p>
           </div>
         ))}
       </div>

@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
@@ -19,10 +16,8 @@ import ListStudents from "./Pages/ListStudents";
 import EditStudent from "./Pages/EditStudent";
 import ViewProfile from "./Pages/ViewProfile";
 import AddStudent from "./Pages/AddStudent";
-// import AddStudent from "./pages/AddStudent";
-// import ListStudents from "./pages/ListStudents";
-// import EditStudent from "./pages/EditStudent";
-// import ViewProfile from "./pages/ViewProfile";
+import IdCard from "./Pages/IdCard";
+
 
 const AdminRoutes = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -54,6 +49,8 @@ const AdminRoutes = () => {
             <Route path="students/list" element={<ListStudents/>} />
             <Route path="students/edit/:id" element={<EditStudent />} />
             <Route path="students/view/:id" element={<ViewProfile />} />
+             <Route path="students/IdCard" element={<IdCard />} />
+
 
             {/* Teachers & Attendance */}
             <Route path="teacher" element={<Teacher />} />
